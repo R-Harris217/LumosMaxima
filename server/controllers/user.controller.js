@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-    // register new user accounts
     register: (req, res) => {
         const user = new User(req.body);
         console.log(user);
@@ -17,7 +16,6 @@ module.exports = {
                 res.status(400).json(err);
             });
     },
-    // login
     login: (req, res) => {
         User.findOne({email: req.body.email})
             .then((userRecord) => {

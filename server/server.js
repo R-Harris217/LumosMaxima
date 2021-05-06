@@ -6,7 +6,6 @@ const socketio = require('socket.io');
 const cookieParser = require("cookie-parser");
 const port = process.env.MY_PORT;
 
-// configure app with functionality
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
@@ -18,13 +17,10 @@ app.use(cookieParser());
 
 
 
-// access to the data
 require('./config/mongoose.config');
 
-// add in the routes
-require('./routes/movie.routes')(app);
+require('./routes/burgers.routes')(app);
 require('./routes/user.routes')(app);
-require('./routes/comment.routes')(app);
 
 const server = app.listen(port, () => console.log("Successfully connected on port " + port));
 
@@ -37,21 +33,19 @@ const io = socketio(server, {
   }
 });
 
-// need to start listening for someone to try and connect to our socket
-//    on this server
 io.on("connection", (socket) => {
   console.log('Server side socket id: ' + socket.id);
 
-  socket.on('added_new_movie', (data) => {
-    console.log("added_new_movie");
+  socket.on('added_new_burger', (data) => {
+    console.log("added_new_burger");
     console.log(data);
-    socket.broadcast.emit('added_movie', data);
+    socket.broadcast.emit('added_burger', data);
   });
 
-  socket.on('deleted_movie', (movieId) => {
-    console.log("deleted_movie");
-    console.log(movieId);
-    socket.broadcast.emit('movie_deleted', movieId);
+  socket.on('deleted_burger', (burgerId) => {
+    console.log("deleted_burger");
+    console.log(burgerId);
+    socket.broadcast.emit('burger_deleted', burgerId);
   });
 
 });

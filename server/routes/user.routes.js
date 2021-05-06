@@ -1,6 +1,5 @@
 const userController = require("../controllers/user.controller");
 
-// add in the JWT middleware function "authenticate" - we named it in jwt.config.js
 const { authenticate } = require("../config/jwt.config");
 
 module.exports = (app) => {
