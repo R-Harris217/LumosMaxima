@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Header />
       <Router>
-        
+        <LogReg path="/" default />
       </Router>
       
     </div>

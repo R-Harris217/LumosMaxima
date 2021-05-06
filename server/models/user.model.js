@@ -46,8 +46,6 @@ UserSchema.pre("validate", function(next) {
 });
 
 
-// intercept the save function! (before we store anything)
-// and "hash" the password before we store it!
 
 UserSchema.pre("save", function(next) {
     bcrypt.hash(this.password, 10)
