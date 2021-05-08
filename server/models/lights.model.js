@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const BurgerSchema = new mongoose.Schema({
+const LightSchema = new mongoose.Schema({
     method: {
         type: String,
         required: [ true, "Method is required" ],
@@ -42,4 +42,4 @@ const BurgerSchema = new mongoose.Schema({
     },
 }, { timestamps: true})
 
-module.exports = mongoose.model("Burger", BurgerSchema);
+module.exports = mongoose.model("Light", LightSchema);

@@ -1,12 +1,12 @@
-const Burger = require('../models/burgers.model');
+const Light = require('../models/lights.model');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
     getAll: (req, res) => {
-        Burger.find({})
-          .then((allBurgers) => {
-            console.log("In All Burgers");
-            res.json(allBurgers);
+        Light.find({})
+          .then((alllights) => {
+            console.log("In All lights");
+            res.json(alllights);
           })
           .catch((err) => {
             console.log("Error in getAll");
@@ -16,16 +16,16 @@ module.exports = {
     
       create: (req, res) => {
         console.log(req.body);
-        const burger = new Burger(req.body);
+        const light = new Light(req.body);
         const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
     
-        burger.user_id = decodedJwt.payload._id;
+        Light.user_id = decodedJwt.payload._id;
     
-        Burger.create(burger)
-          .then((newBurger) => {
+        Light.create(Light)
+          .then((newLight) => {
             console.log("in create");
-            console.log(newBurger);
-            res.json(newBurger);
+            console.log(newLight);
+            res.json(newLight);
           })
           .catch((err) => {
             console.log("error found in create");
@@ -37,12 +37,12 @@ module.exports = {
       getOne: (req, res) => {
         console.log(req.params.id);
     
-        Burger.findById(req.params.id)
+        Light.findById(req.params.id)
           .populate("user_id", "username email -_id")
           .populate("comments", "comment commentDate -_id")
-          .then((oneBurger) => {
+          .then((oneLight) => {
             console.log("in getOne");
-            res.json(oneBurger);
+            res.json(oneLight);
           })
           .catch((err) => {
             console.log("error found in getOne");
@@ -53,13 +53,13 @@ module.exports = {
       update: (req, res) => {
         console.log(req.params.id);
     
-        Burger.findByIdAndUpdate(req.params.id, req.body, {
+        Light.findByIdAndUpdate(req.params.id, req.body, {
           new: true,  
           runValidators: true, 
         })
-          .then((updatedBurger) => {
-            console.log("in update burger");
-            res.json(updatedBurger);
+          .then((updatedLight) => {
+            console.log("in update Light");
+            res.json(updatedLight);
           })
           .catch((err) => {
             console.log("error found in update");
@@ -70,10 +70,10 @@ module.exports = {
       delete: (req, res) => {
         console.log(req.params.id);
     
-        Burger.findByIdAndDelete(req.params.id)
-          .then((deletedBurger) => {
-            console.log("in delete burger");
-            res.json(deletedBurger);
+        Light.findByIdAndDelete(req.params.id)
+          .then((deletedLight) => {
+            console.log("in delete Light");
+            res.json(deletedLight);
           })
           .catch((err) => {
             console.log("error found in delete");

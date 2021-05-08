@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 require('./config/mongoose.config');
 
-require('./routes/burgers.routes')(app);
+require('./routes/lights.routes')(app);
 require('./routes/user.routes')(app);
 
 const server = app.listen(port, () => console.log("Successfully connected on port " + port));
@@ -37,16 +37,16 @@ const io = socketio(server, {
 io.on("connection", (socket) => {
   console.log('Server side socket id: ' + socket.id);
 
-  socket.on('added_new_burger', (data) => {
-    console.log("added_new_burger");
+  socket.on('added_new_light', (data) => {
+    console.log("added_new_light");
     console.log(data);
-    socket.broadcast.emit('added_burger', data);
+    socket.broadcast.emit('added_light', data);
   });
 
-  socket.on('deleted_burger', (burgerId) => {
-    console.log("deleted_burger");
-    console.log(burgerId);
-    socket.broadcast.emit('burger_deleted', burgerId);
+  socket.on('deleted_light', (lightId) => {
+    console.log("deleted_light");
+    console.log(lightId);
+    socket.broadcast.emit('light_deleted', lightId);
   });
 
 });

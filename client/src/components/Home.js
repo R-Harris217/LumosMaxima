@@ -6,18 +6,18 @@ const Home = (props) => {
     return(
         <div>
             {/* navbar and title here */}
-            <h1>Burgers</h1>
+            <h1>Browse our lights</h1>
             <div>
-                <p>Try one of our signature burgers.</p>
-                <button>See Burgers</button>
+                <p>The best flashlights</p>
+                <button>Illuminate</button>
             </div>
             <div>
-                <p>Create your own burger.</p>
-                <button>Get Crafty</button>
+                <p>Check out our top rated lights</p>
+                <button>Check it out</button>
             </div>
             <div>
-                <p>Feeling lucky? Roll the dice for a random burger.</p>
-                <button>Roll The Dice</button>
+                <p>The most powerful flashlight in the world</p>
+                <button>Maxima</button>
             </div>
 
         </div>

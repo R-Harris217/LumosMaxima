@@ -20,7 +20,7 @@ const Header = (props) => {
 
   return (
     <div>
-      <h1>Big Bad Burgers</h1>
+      <h1>Lumos Maxima</h1>
       <div>
         <button onClick={(e) => logout(e) }>Logout</button>
       </div>

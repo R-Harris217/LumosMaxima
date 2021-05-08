@@ -20,7 +20,7 @@ const Login = () => {
         console.log(res.cookie);
         console.log(res);
         console.log(res.data, 'is res data!');
-        // navigate("/home");
+        navigate("/home");
       })
       .catch(err => {
         console.log(err.response);
