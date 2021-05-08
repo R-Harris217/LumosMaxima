@@ -1,45 +1,30 @@
 const mongoose = require('mongoose');
 
 const LightSchema = new mongoose.Schema({
-    method: {
+    name: {
         type: String,
-        required: [ true, "Method is required" ],
-        enum: [ 'Delivery', 'Carryout' ]
+        required: [ true, "Name is required" ],
     },
-    size: {
+    lumen: {
+        type: Number,
+        required: [ true, "Lumens is required" ],
+        
+    },
+    batteryType: {
         type: String,
-        required: [ true, "Size is required" ],
-        enum: [ '1/4 lb', '1/2 lb', '3/4 lb', '1 lb' ]
+        required: [ true, "Battery type is required" ],
     },
-    bun: {
+    waterproofRating: {
         type: String,
-        required: [ true, "Bun type is required" ],
-        enum: [ 'None', 'Plain', 'Sesame Seed', 'Pretzel' ]
+        required: [ true, "Rating required"]
     },
-    topping: {
+    description: {
         type: String,
-        enum: [
-            'Ketchup',
-            'Mustard',
-            'Mayo',
-            'BBQ Sauce',
-            'Dill Pickle',
-            'Tomato',
-            'Lettuce',
-            'Onion',
-            'Bacon'
-    ]
     },
-    cheese: {
+    pictureUrl: {
         type: String,
-        enum: [
-            'Cheddar',
-            'Swiss',
-            'American',
-            'Provolone',
-            'Pepperjack'
-        ]
-    },
+        required: [ true, "Flashlight picture required"]
+    }
 }, { timestamps: true})
 
 module.exports = mongoose.model("Light", LightSchema);
