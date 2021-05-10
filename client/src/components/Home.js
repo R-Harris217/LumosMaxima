@@ -8,8 +8,8 @@ const Home = (props) => {
             {/* navbar and title here */}
             <h1>Browse our lights</h1>
             <div>
-                <p>The best flashlights</p>
-                <button>Illuminate</button>
+                <p>All flashlights</p>
+                <button onClick={ () => navigate('/lights')}>Illuminate</button>
             </div>
             <div>
                 <p>Check out our top rated lights</p>
