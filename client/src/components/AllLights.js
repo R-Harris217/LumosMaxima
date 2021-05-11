@@ -58,7 +58,7 @@ const AllLights = (props) => {
   
   return (
     <div>
-      <h2>All lights</h2>
+      <h2>Our lights</h2>
       <table>
         <thead>
           <th>Light Name</th>
@@ -74,7 +74,7 @@ const AllLights = (props) => {
                   </Link>
                 </td>
                 <td>
-                  <button className="editBtn" onClick={ () => navigate(`/Lights/${light._id}/edit`) }>Details</button>
+                  <button className="editBtn" onClick={ () => navigate(`/Lights/${light._id}`) }>Add To Cart</button>
                   {/* <button className="deleteBtn" onClick={ () => deleteLight(light._id) }>Delete light</button> */}
                 </td>
               </tr>
