@@ -9,12 +9,11 @@ const AddLights = (props) => {
   const [ errors, setErrors ] = useState({});
   const [ newLight, setNewLight ] = useState({
     name: "",
-    releaseDate: "",
-    rating: "",
-    genre: "",
-    watchLength: 90,
-    actors: "",
-    coverArtUrl: ""
+    lumen: "",
+    batteryType: "",
+    waterproofRating: "",
+    description: "",
+    pictureUrl: "",
   })
 
   const submitHandler = (e) => {

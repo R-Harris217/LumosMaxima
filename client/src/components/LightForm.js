@@ -32,100 +32,72 @@ const LightForm = (props) => {
               />
           </div>
           <div>
-            <label>Release Date</label>
+            <label>Lumens</label>
             {
               errors.releaseDate ?
-                <span className="error-text">{errors.releaseDate.message}</span>
+                <span className="error-text">{errors.lumen.message}</span>
                 : null
             }
             <input
               type="text"
-              name="releaseDate"
-              value={ movie.releaseDate !== "" ? (new Date(movie.releaseDate)).toLocaleDateString("en-us") : "" }
+              name="lumens"
+              value={ light.lumen }
               onChange={ (e) => inputChange(e) }
               />
           </div>
           <div>
-            <label>Rating</label>
+            <label>Battery</label>
             {
-              errors.rating ?
-                <span className="error-text">{errors.rating.message}</span>
-                : null
-            }
-            <select
-              name="rating"
-              value={ movie.rating }
-              onChange={ (e) => inputChange(e) }
-              >
-              <option value=""></option>
-              {
-                ratings.map((rating, index) => (
-                  <option value={ rating} key={ 'rating-' + index }>{ rating }</option>
-                ))
-              }
-            </select>
-          </div>
-          <div>
-            <label>Genre</label>
-            {
-              errors.genre ?
-                <span className="error-text">{errors.genre.message}</span>
-                : null
-            }
-            <select
-              name="genre"
-              value={ movie.genre }
-              onChange={ (e) => inputChange(e) }
-              >
-              <option value=""></option>
-              {
-                genres.map((genre, index) => (
-                  <option value={ genre } key={ 'genre-' + index }>{ genre }</option>
-                ))
-              }
-            </select>
-          </div>
-          <div>
-            <label>Duration (minutes)</label>
-            {
-              errors.watchLength ?
-                <span className="error-text">{errors.watchLength.message}</span>
-                : null
-            }
-            <input
-              type="number"
-              min="80"
-              max="200"
-              name="watchLength"
-              value={ movie.watchLength }
-              onChange={ (e) => inputChange(e) }
-              />
-          </div>
-          <div>
-            <label>Actors</label>
-            {
-              errors.actors ?
-                <span className="error-text">{errors.actors.message}</span>
+              errors.batteryType ?
+                <span className="error-text">{errors.batteryType.message}</span>
                 : null
             }
             <input
               type="text"
-              name="actors"
-              value={ movie.actors }
+              name="batteryType"
+              value={ light.batteryType }
               onChange={ (e) => inputChange(e) }
               />
           </div>
           <div>
-            <label>Cover Art Url</label>
+            <label>Waterproof Rating</label>
             {
-              errors.coverArtUrl ?
-                <span className="error-text">{errors.coverArtUrl.message}</span>
+              errors.waterproofRating ?
+                <span className="error-text">{errors.waterproofRating.message}</span>
                 : null
             }
             <input
               type="text"
-              name="coverArtUrl"
-              value={ movie.coverArtUrl }
+              name="waterproofRating"
+              value={ light.waterproofRating }
+              onChange={ (e) => inputChange(e) }
+              />
+          </div>
+          <div>
+            <label>Description</label>
+            {
+              errors.description?
+                <span className="error-text">{errors.description.message}</span>
+                : null
+            }
+            <input
+              type="text"
+              name="description"
+              value={ light.description }
+              onChange={ (e) => inputChange(e) }
+              />
+          </div>
+          <div>
+            <label>Light Picture Url</label>
+            {
+              errors.pictureUrl ?
+                <span className="error-text">{errors.pictureUrl.message}</span>
+                : null
+            }
+            <input
+              type="text"
+              name="pictureUrl"
+              value={ light.pictureUrl }
               onChange={ (e) => inputChange(e) }
               />
           </div>
