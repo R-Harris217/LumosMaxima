@@ -8,7 +8,6 @@ const LightSchema = new mongoose.Schema({
     lumen: {
         type: Number,
         required: [ true, "Lumens is required" ],
-        
     },
     batteryType: {
         type: String,
@@ -17,6 +16,10 @@ const LightSchema = new mongoose.Schema({
     waterproofRating: {
         type: String,
         required: [ true, "Rating required"]
+    },
+    price: {
+        type: Number,
+        required: [ true, "Price required"]
     },
     description: {
         type: String,

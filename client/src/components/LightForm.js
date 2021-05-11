@@ -20,8 +20,8 @@ const LightForm = (props) => {
           <div>
             <label>Name</label>
             {
-              errors.title ?
-                <span className="error-text">{errors.title.message}</span>
+              errors.name ?
+                <span className="error-text">{errors.name.message}</span>
                 : null
             }
             <input
@@ -40,7 +40,7 @@ const LightForm = (props) => {
             }
             <input
               type="text"
-              name="lumens"
+              name="lumen"
               value={ light.lumen }
               onChange={ (e) => inputChange(e) }
               />

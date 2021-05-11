@@ -19,9 +19,9 @@ module.exports = {
         const light = new Light(req.body);
         const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
     
-        Light.user_id = decodedJwt.payload._id;
+        light.user_id = decodedJwt.payload._id;
     
-        Light.create(Light)
+        Light.create(light)
           .then((newLight) => {
             console.log("in create");
             console.log(newLight);

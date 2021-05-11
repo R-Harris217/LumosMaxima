@@ -4,6 +4,7 @@ import LogReg from './views/LogReg';
 import Header from './components/Header';
 import Home from './components/Home';
 import AddLights from './components/AddLights';
+import AllLights from './components/AllLights';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <LogReg path="/" default />
         <Home path='/home' />
         <AddLights path='/addlights' />
+        <AllLights path='/lights' />
       </Router>
       
     </div>

@@ -25,9 +25,9 @@ const AllLights = (props) => {
 
     socket.on('light_deleted', (deletedLightId) => {
       setAllLights( (currentAllLightValues) => {
-      //   return currentAllLightValues.filter((oneLight) => {
-      //     return oneLight._id !== deletedLightId;
-      //   });
+        return currentAllLightValues.filter((oneLight) => {
+          return oneLight._id !== deletedLightId;
+        });
         let filteredLightArray = currentAllLightValues.filter((oneLight) => {
           return oneLight._id !== deletedLightId;
         });
@@ -40,7 +40,7 @@ const AllLights = (props) => {
 
   }, []);
 
-  // const getAllLights = () => {
+  // const setAllLights = () => {
   useEffect(() => {
     axios.get('http://localhost:8000/api/lights', {
       withCredentials: true
@@ -55,43 +55,13 @@ const AllLights = (props) => {
       })
   }, []);
 
-  const deleteLight = ( lightId ) => {
-    // need to do 2 things
-    // 1 - delete from the backend server / mongodb
-    axios.delete('http://localhost:8000/api/lights/' + lightId, {
-      withCredentials: true
-    })
-      .then((res) => {
-        // successfully deleted!
-        // res.data is the object we just deleted from mongoDB
-        console.log(res.data);
-
-        // send this conversation / message directly to the server
-        socket.emit("deleted_light", lightId);
-
-        // 2 - remove light from the array of light objects AFTER successfully 
-        //    removing from the backend server
-        let filteredLightArray = allLights.filter((oneLight) => {
-          return oneLight._id !== lightId;
-        });
-        setAllLights(filteredLightArray);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
+  
   return (
     <div>
       <h2>All lights</h2>
-      {/* <button onClick={ (e) => getAllLights(e) }>Get Lights</button> */}
-      {/* <button onClick={ getAllLights } */}
-      <Link to="/lights/new">
-        <button>Add light</button>
-      </Link>
       <table>
         <thead>
-          <th>Light Title</th>
+          <th>Light Name</th>
           <th>Actions Available</th>
         </thead>
         <tbody>
@@ -100,12 +70,12 @@ const AllLights = (props) => {
               <tr key={ index }>
                 <td>
                   <Link to={ `/Lights/${light._id}` } >
-                    { light.title }
+                    { light.name }
                   </Link>
                 </td>
                 <td>
-                  <button className="editBtn" onClick={ () => navigate(`/Lights/${light._id}/edit`) }>Edit light</button>
-                  <button className="deleteBtn" onClick={ () => deletelight(light._id) }>Delete light</button>
+                  <button className="editBtn" onClick={ () => navigate(`/Lights/${light._id}/edit`) }>Details</button>
+                  {/* <button className="deleteBtn" onClick={ () => deleteLight(light._id) }>Delete light</button> */}
                 </td>
               </tr>
             ))
