@@ -69,13 +69,12 @@ const AllLights = (props) => {
             allLights.map((light, index) => (
               <tr key={ index }>
                 <td>
-                  <Link to={ `/Lights/${light._id}` } >
+                  <Link to={ `/lights/${light._id}` } >
                     { light.name }
                   </Link>
                 </td>
                 <td>
-                  <button className="editBtn" onClick={ () => navigate(`/Lights/${light._id}`) }>Add To Cart</button>
-                  {/* <button className="deleteBtn" onClick={ () => deleteLight(light._id) }>Delete light</button> */}
+                  <button className="editBtn" onClick={ () => navigate(`/lights/${light._id}`) }>Add To Cart</button>
                 </td>
               </tr>
             ))

@@ -16,15 +16,15 @@ const UserSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        required: [true, "Address field is required!"]
+        // required: [true, "Address field is required!"]
     },
     city: {
         type: String,
-        required: [true, "City field is required!"]
+        // required: [true, "City field is required!"]
     },
     state: {
         type: String,
-        required: [true, "State is required!"]
+        // required: [true, "State is required!"]
     },
     password: {
         type: String,

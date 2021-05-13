@@ -1,10 +1,13 @@
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './bootstrap.css';
 import { Router } from '@reach/router';
 import LogReg from './views/LogReg';
 import Header from './components/Header';
 import Home from './components/Home';
 import AddLights from './components/AddLights';
 import AllLights from './components/AllLights';
+import LightDetails from './components/LightDetails';
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
         <Home path='/home' />
         <AddLights path='/addlights' />
         <AllLights path='/lights' />
+        <LightDetails path='/lights/:light_id' />
       </Router>
       
     </div>

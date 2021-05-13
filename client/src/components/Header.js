@@ -20,10 +20,13 @@ const Header = (props) => {
 
   return (
     <div>
-      <h1>Lumos Maxima</h1>
-      <div>
-        <button onClick={(e) => logout(e) }>Logout</button>
-      </div>
+      <header className='navbar'>
+        <div className='navbar__title navbar__item'>LumosMaxima</div>
+        <div className='navbar__item' onClick={() => navigate('/home')}>Home</div>
+        <div className='navbar__item' onClick={() => navigate('/home')}>Cart</div>
+        <div className='navbar__item' onClick={() => navigate('/home')}>Account</div>
+        <div className='navbar__item' onClick={(e) => logout(e) }>Logout</div>
+      </header>
     </div>
   )
 };
