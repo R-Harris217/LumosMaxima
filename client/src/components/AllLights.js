@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { navigate, Link } from '@reach/router';
 import io from 'socket.io-client';
+import '../bootstrap.css'
 
 const AllLights = (props) => {
   const [ allLights, setAllLights ] = useState([]);
@@ -58,7 +59,7 @@ const AllLights = (props) => {
   
   return (
     <div>
-      <h2>Our lights</h2>
+      {/* <h2>Our lights</h2>
       <table>
         <thead>
           <th>Light Name</th>
@@ -80,7 +81,44 @@ const AllLights = (props) => {
             ))
           }
         </tbody>
-      </table>
+      </table> */}
+    <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading" style={{color:"white"}}>Our Lights</h1>
+          <p class="lead" style={{color:"white"}}>Illuminate your world with our selection of the best lights on the market.</p>
+          {/* <p>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          </p> */}
+        </div>
+      </section>
+
+      <div class="album py-5" style={{background:"black"}}>
+        <div class="container">
+          <div class="row">
+          {
+            allLights.map((light, index) => (
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" style={{height:"350px", width:"448px", objectFit:"cover"}} src={light.pictureUrl} alt="Card image cap" />
+                <div class="card-body">
+                  <p class="card-text your-div">{light.description}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onClick={ () => navigate(`/lights/${light._id}`) }>View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ))}
+            
+          </div>
+        </div>
+      </div>
+    </main>
     </div>
   )
 }

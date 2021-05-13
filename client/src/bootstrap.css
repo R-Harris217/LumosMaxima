@@ -6,7 +6,7 @@
     padding-top: var(--jumbotron-padding-y);
     padding-bottom: var(--jumbotron-padding-y);
     margin-bottom: 0;
-    background-color: #fff;
+    background-color: #888;
   }
   @media (min-width: 768px) {
     .jumbotron {
@@ -59,3 +59,10 @@
     cursor: pointer;
     vertical-align: middle;
 }
+
+.your-div {
+  white-space: nowrap;
+  width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
