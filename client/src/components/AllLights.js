@@ -107,7 +107,7 @@ const AllLights = (props) => {
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary" onClick={ () => navigate(`/lights/${light._id}`) }>View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}}>Add to Cart</button>
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@
     padding-top: var(--jumbotron-padding-y);
     padding-bottom: var(--jumbotron-padding-y);
     margin-bottom: 0;
-    background-color: #888;
+    background: radial-gradient(circle, rgba(0,0,0,1) 6%, rgba(255,255,255,0.8519782913165266) 59%);
   }
   @media (min-width: 768px) {
     .jumbotron {
