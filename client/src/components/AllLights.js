@@ -74,7 +74,9 @@ const AllLights = (props) => {
             allLights.map((light, index) => (
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
+                <Link to={`/lights/${light._id}`}>
                 <img class="card-img-top" style={{height:"350px", width:"448px", objectFit:"cover"}} src={light.pictureUrl} alt="Card image cap" />
+                </Link>
                 <div class="card-body">
                   <p class="card-text your-div">{light.description}</p>
                   <div class="d-flex justify-content-between align-items-center">
