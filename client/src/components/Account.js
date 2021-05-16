@@ -66,7 +66,7 @@ const Account = (props) => {
       {userInfo.map((user, index) => (
         <div key={index}>
           <div class="top-content">
-            <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_loneliness_lonely_186593_1920x1080.jpg)"}}>
+            <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_flashlight_night_198036_1920x1080.jpg)"}}>
               <div class="container">
                 <div class="row">
                   <div class="col-sm-5">
@@ -89,7 +89,7 @@ const Account = (props) => {
                           onSubmit={submitHandler}
                         >
                           <div class="form-group">
-                            <label class="sr-only" for="form-first-name">
+                            <label class="sr-only" for="form-first-name" style={{color:"white"}}>
                               First name
                             </label>
                             <input
@@ -103,7 +103,7 @@ const Account = (props) => {
                             />
                           </div>
                           <div class="form-group">
-                            <label class="sr-only" for="form-last-name">
+                            <label class="sr-only" for="form-last-name" style={{color:"white"}}>
                               Last name
                             </label>
                             <input
@@ -117,7 +117,7 @@ const Account = (props) => {
                             />
                           </div>
                           <div class="form-group">
-                            <label class="sr-only" for="form-email">
+                            <label class="sr-only" for="form-email" style={{color:"white"}}>
                               Email
                             </label>
                             <input
@@ -130,7 +130,7 @@ const Account = (props) => {
                             />
                           </div>
                           <div class="form-group">
-                            <label class="sr-only" for="form-email">
+                            <label class="sr-only" for="form-email" style={{color:"white"}}>
                               Address
                             </label>
                             <input
@@ -144,7 +144,7 @@ const Account = (props) => {
                             />
                           </div>
                           <div class="form-group">
-                            <label class="sr-only" for="form-email">
+                            <label class="sr-only" for="form-email" style={{color:"white"}}>
                               City
                             </label>
                             <input
@@ -158,7 +158,7 @@ const Account = (props) => {
                             />
                           </div>
                           <div class="form-group">
-                            <label class="sr-only" for="form-email">
+                            <label class="sr-only" for="form-email" style={{color:"white"}}>
                               State
                             </label>
                             <input
@@ -170,7 +170,7 @@ const Account = (props) => {
                               value={user.state}
                               // onChange={ handleChange }
                             />
-                            <button type="submit" class="btn">
+                            <button type="submit" class="btn" style={{color:"white"}}>
                               Update Account
                             </button>
                           </div>

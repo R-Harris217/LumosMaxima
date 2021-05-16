@@ -21,7 +21,7 @@ const Header = (props) => {
   return (
     <div>
       <header className='navbar'>
-        <div className='navbar__title navbar__item'>LumosMaxima</div>
+        <div className='navbar__title navbar__item' onClick={() => navigate('/home')}>LumosMaxima</div>
         <div className='navbar__item' onClick={() => navigate('/home')}>Home</div>
         <div className='navbar__item' onClick={() => navigate('/home')}>Cart</div>
         <div className='navbar__item' onClick={() => navigate('/lights/account')}>Account</div>
