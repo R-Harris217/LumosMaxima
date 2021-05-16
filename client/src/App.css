@@ -94,3 +94,14 @@ img {
 hr {
   margin: 25px;
 } */
+.homepic {
+  display: inline-block;
+  height: auto;
+  width: 1000px;
+  justify-content: left;
+}
+.homebox {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+}
