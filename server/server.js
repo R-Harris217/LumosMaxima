@@ -22,6 +22,7 @@ require('./config/mongoose.config');
 
 require('./routes/lights.routes')(app);
 require('./routes/user.routes')(app);
+require('./routes/cart.routes')(app);
 
 const server = app.listen(port, () => console.log("Successfully connected on port " + port));
 

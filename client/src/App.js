@@ -10,6 +10,7 @@ import AddLights from './components/AddLights';
 import AllLights from './components/AllLights';
 import LightDetails from './components/LightDetails';
 import Account from './components/Account';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <AllLights path='/lights' />
         <LightDetails path='/lights/:light_id' />
         <Account path='/lights/account' />
+        <Cart path='lights/cart' />
       </Router>
       
     </div>

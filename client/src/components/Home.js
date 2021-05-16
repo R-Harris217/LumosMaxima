@@ -1,7 +1,6 @@
 import React, { useState, Component } from "react";
 import axios from "axios";
 import { Link,navigate } from '@reach/router';
-import {Carousel} from '3d-react-carousal';
 
 
 const Home = (props) => {
