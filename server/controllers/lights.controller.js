@@ -4,9 +4,9 @@ const jwt = require('jsonwebtoken');
 module.exports = {
     getAll: (req, res) => {
         Light.find({})
-          .then((alllights) => {
+          .then((allLights) => {
             console.log("In All lights");
-            res.json(alllights);
+            res.json(allLights);
           })
           .catch((err) => {
             console.log("Error in getAll");

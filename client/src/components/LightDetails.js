@@ -24,9 +24,6 @@ const LightDetails = (props) => {
       <h2>
         { light.name }
       </h2>
-      <div>
-        <img src={ light.pictureUrl } alt={ light.name } />
-      </div>
       <p>
         Lumens: { light.lumen }
       </p>
@@ -44,6 +41,9 @@ const LightDetails = (props) => {
       </p>
       <button className="editBtn" onClick={ () => navigate("/lights") }>Return to All Lights</button>
       <button className="editBtn" onClick={ () => navigate("/lights") }>Add To Cart</button>
+      <div>
+        <img src={ light.pictureUrl } alt={ light.name } />
+      </div>
     </div>
   )
 }

@@ -55,5 +55,63 @@ module.exports = {
         console.log("logged out!");
         res.clearCookie("usertoken");
         res.json({ message: "You have successfully logged out!"});
-    }
+    },
+    // accountInfo: (req, res) => {
+    //     User.find({})
+    //         .then((userRecord) => {
+    //             console.log("in accountInfo");
+    //             res.json(userRecord);
+    //         })
+    //         .catch((err) => {
+    //             console.log("error found in accountInfo");
+    //             res.status(400).json(err);
+    //         })
+    // },
+    accountInfo: (req, res) => {
+        const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
+    
+        user_id = decodedJwt.payload._id;
+    
+        User.find({})
+          .then((userRecord) => {
+            console.log("in user record");
+            console.log(userRecord);
+            res.json(userRecord);
+          })
+          .catch((err) => {
+            console.log("error found in user record");
+            console.log(err);
+            res.status(400).json(err);
+          })
+      },
+      delete: (req, res) => {
+        console.log(req.params.id);
+    
+        User.findByIdAndDelete(req.params.id)
+          .then((deletedUser) => {
+            console.log("in delete User");
+            res.json(deletedUser);
+          })
+          .catch((err) => {
+            console.log("error found in delete");
+            res.status(400).json(err);
+          })
+      },
+      update: (req, res) => {
+        console.log(req.params.id);
+    
+        User.findByIdAndUpdate(req.params.id, req.body, {
+          new: true,  
+          runValidators: true,  
+        })
+          .then((updatedUser) => {
+            console.log("in update user");
+            // console.log(updatedMovie);
+            res.json(updatedUser);
+          })
+          .catch((err) => {
+            console.log("error found in update");
+            res.status(400).json(err);
+          })
+      },
 }

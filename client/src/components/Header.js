@@ -24,7 +24,7 @@ const Header = (props) => {
         <div className='navbar__title navbar__item'>LumosMaxima</div>
         <div className='navbar__item' onClick={() => navigate('/home')}>Home</div>
         <div className='navbar__item' onClick={() => navigate('/home')}>Cart</div>
-        <div className='navbar__item' onClick={() => navigate('/home')}>Account</div>
+        <div className='navbar__item' onClick={() => navigate('/lights/account')}>Account</div>
         <div className='navbar__item' onClick={(e) => logout(e) }>Logout</div>
       </header>
     </div>

@@ -59,38 +59,11 @@ const AllLights = (props) => {
   
   return (
     <div>
-      {/* <h2>Our lights</h2>
-      <table>
-        <thead>
-          <th>Light Name</th>
-          <th>Actions Available</th>
-        </thead>
-        <tbody>
-          {
-            allLights.map((light, index) => (
-              <tr key={ index }>
-                <td>
-                  <Link to={ `/lights/${light._id}` } >
-                    { light.name }
-                  </Link>
-                </td>
-                <td>
-                  <button className="editBtn" onClick={ () => navigate(`/lights/${light._id}`) }>Add To Cart</button>
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table> */}
     <main role="main">
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading" style={{color:"white"}}>Our Lights</h1>
           <p class="lead" style={{color:"white"}}>Illuminate your world with our selection of the best lights on the market.</p>
-          {/* <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p> */}
         </div>
       </section>
 

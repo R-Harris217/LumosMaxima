@@ -33,7 +33,6 @@ const UserSchema = new mongoose.Schema({
     }
 }, { timestamps: true});
 
-// we want to validate password === confirmPassword, but we don't want this in our DB!
 UserSchema.virtual("confirmPassword")
     .get(() => this._confirmPassword)
     .set((value) => this._confirmPassword = value);
