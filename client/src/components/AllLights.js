@@ -67,7 +67,7 @@ const AllLights = (props) => {
         </div>
       </section>
 
-      <div class="album py-5" style={{background:"black"}}>
+      <div class="album py-5">
         <div class="container">
           <div class="row">
           {
@@ -79,7 +79,7 @@ const AllLights = (props) => {
                   <p class="card-text your-div">{light.description}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onClick={ () => navigate(`/lights/${light._id}`) }>View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" style={{marginLeft:"90px"}} onClick={ () => navigate(`/lights/${light._id}`) }>View</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}}>Add to Cart</button>
                     </div>
                   </div>

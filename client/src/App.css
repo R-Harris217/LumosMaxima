@@ -95,13 +95,34 @@ hr {
   margin: 25px;
 } */
 .homepic {
-  display: inline-block;
+  /* display: inline-block; */
   height: auto;
   width: 1000px;
   justify-content: left;
 }
 .homebox {
   display: inline-block;
-  vertical-align: top;
-  width: 400px;
+  align-content: center;
+  margin-top: 50px;
+  width: 1800px;
+  height: auto;
+}
+
+.lightbox {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.lightdetails {
+  width: 500px;
+  height: auto;
+  margin-top: 30px;
+  /* border: 3px solid black; */
+  text-align: left;
+  color: black;
+}
+.lightdetailspic {
+  width: 500px;
 }

@@ -20,11 +20,11 @@ const LightDetails = (props) => {
   }, []);
 
   return (
-    <div style={{background:"url(https://images.wallpaperscraft.com/image/man_starry_sky_light_flashlight_119928_1920x1080.jpg)", height:"865px"}}>
-      <div>
-      <p>
+    <div class="lightbox" style={{height:"865px"}}>
+      <div class="lightdetails">
+      <h1>
         { light.name }
-      </p>
+      </h1>
       <p>
         Lumens: { light.lumen }
       </p>
@@ -40,11 +40,11 @@ const LightDetails = (props) => {
       <p>
         Description: { light.description }
       </p>
-      <button className="editBtn" onClick={ () => navigate("/lights") }>Return to All Lights</button>
-      <button className="editBtn" onClick={ () => navigate("/lights") }>Add To Cart</button>
+      <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"0px"}} onClick={ () => navigate("/lights") }>Return to All Lights</button>
+      <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}} onClick={ () => navigate("/lights") }>Add To Cart</button>
       </div>
-      <div>
-        <img src={ light.pictureUrl } alt={ light.name } />
+      <div class="lightdetailspic">
+        <img class="lightdetailspic img-fluid" src={ light.pictureUrl } alt={ light.name } />
       </div>
     </div>
   )

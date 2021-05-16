@@ -66,7 +66,7 @@ const Account = (props) => {
       {userInfo.map((user, index) => (
         <div key={index}>
           <div class="top-content">
-            <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_flashlight_night_198036_1920x1080.jpg)"}}>
+            <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_flashlight_night_198036_1920x1080.jpg)", height:"860px"}}>
               <div class="container">
                 <div class="row">
                   <div class="col-sm-5">
