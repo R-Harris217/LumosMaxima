@@ -11,6 +11,7 @@ import AllLights from './components/AllLights';
 import LightDetails from './components/LightDetails';
 import Account from './components/Account';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <LightDetails path='/lights/:light_id' />
         <Account path='/lights/account' />
         <Cart path='lights/cart' />
+        <Checkout path='lights/cart/checkout' />
       </Router>
       
     </div>

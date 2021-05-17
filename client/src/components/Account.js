@@ -176,7 +176,9 @@ const Account = (props) => {
                           </div>
                         </form>
                       </div>
+                      <button style={{background:"none", border:"none", marginLeft:"600px"}} onClick={ () => navigate("/addlights") }>AddLights</button>
                     </div>
+
                   </div>
                 </div>
               </div>

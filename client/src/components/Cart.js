@@ -5,6 +5,7 @@ import { navigate, Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table } from 'reactstrap';
 import { useDispatch } from 'react-redux';
+import ReactDOM from "react-dom";
 
 const Cart = (props) => {
   const [allCart, setAllCart] = useState([]);
@@ -88,6 +89,22 @@ const Cart = (props) => {
       });
   }
 
+  const createOrder = (data, actions) =>{
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: "0.01",
+          },
+        },
+      ],
+    });
+  };
+
+  const onApprove = (data, actions) => {
+    return actions.order.capture();
+  };
+
 
 
   return (
@@ -119,7 +136,8 @@ const Cart = (props) => {
          
       </tbody>
       </Table>
-      <p></p>
+      <p>Total: $________</p>
+      <button class="btn btn-sm btn-outline-secondary" onClick={() => navigate("/lights/cart/checkout")}>Checkout</button>
     </div>
   );
 };
