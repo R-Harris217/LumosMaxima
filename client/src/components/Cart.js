@@ -94,7 +94,7 @@ const Cart = (props) => {
     <div>
       <h1>Cart</h1>
       <div>
-        <button onClick={() => navigate("/lights")}>Continue shopping</button>
+        <button class="btn btn-sm btn-outline-secondary" onClick={() => navigate("/lights")}>Continue shopping</button>
       </div>
       <Table hover>
               
@@ -109,10 +109,10 @@ const Cart = (props) => {
               alt="Card image cap"
             />
             </td>
-            <td>{item.name}</td>
-            <td>${item.price}</td>
+            <td style={{fontSize:"30px", paddingTop: "90px"}}>{item.name}</td>
+            <td style={{fontSize:"30px", paddingTop: "90px"}}>${item.price}</td>
             <td>
-          <button onClick={() => deleteCart(item._id)}>Remove</button>
+          <button class="btn btn-sm btn-outline-secondary" style={{marginTop: "70px"}} onClick={() => deleteCart(item._id)}>Remove</button>
           </td>
           </tr>
           ))}

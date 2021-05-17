@@ -100,7 +100,7 @@ const LightDetails = (props) => {
         Description: { light.description }
       </p>
       <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"0px"}} onClick={ () => navigate("/lights") }>Return to All Lights</button>
-      <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}} type="submit" form="form1" value="Submit" onSubmit={submitCart}>Add To Cart</button>
+      <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}} type="submit" form="form1" value="Submit" onClick={ () => navigate("/lights/cart") }>Add To Cart</button>
       </div>
       <div class="lightdetailspic">
         <img class="lightdetailspic img-fluid" src={ light.pictureUrl } alt={ light.name } />

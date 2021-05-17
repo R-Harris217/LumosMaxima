@@ -74,6 +74,20 @@ const LightForm = (props) => {
               />
           </div>
           <div>
+            <label>Price</label>
+            {
+              errors.price ?
+                <span className="error-text">{errors.price.message}</span>
+                : null
+            }
+            <input
+              type="text"
+              name="price"
+              value={ light.price }
+              onChange={ (e) => inputChange(e) }
+              />
+          </div>
+          <div>
             <label>Description</label>
             {
               errors.description?
