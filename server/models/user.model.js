@@ -4,15 +4,15 @@ const bcrypt = require("bcrypt");
 const UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: [true, "First Name field is required!"]
+        // required: [true, "First Name field is required!"]
     },
     lastName: {
         type: String,
-        required: [true, "Last Name field is required!"]
+        // required: [true, "Last Name field is required!"]
     },
     email: {
         type: String,
-        required: [true, "Email field is required!"]
+        // required: [true, "Email field is required!"]
     },
     address: {
         type: String,
@@ -22,13 +22,17 @@ const UserSchema = new mongoose.Schema({
         type: String,
         // required: [true, "City field is required!"]
     },
+    cart: {
+        type: Array,
+        default:[]
+    },
     state: {
         type: String,
         // required: [true, "State is required!"]
     },
     password: {
         type: String,
-        required: [true, "Password field is required!"],
+        // required: [true, "Password field is required!"],
         minLength: [8, "Password must be at least 8 characters!"]
     }
 }, { timestamps: true});

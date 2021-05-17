@@ -88,10 +88,6 @@ const Cart = (props) => {
       });
   }
 
-  addCart = () => {
-    
-  }
-
 
 
   return (

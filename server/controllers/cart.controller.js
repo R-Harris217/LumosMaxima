@@ -39,7 +39,7 @@ module.exports = {
         Cart.findByIdAndDelete(req.params.id)
           .then((deletedCart) => {
             console.log("in delete cart");
-            res.json(deletedcart);
+            res.json(deletedCart);
           })
           .catch((err) => {
             console.log("error found in delete");

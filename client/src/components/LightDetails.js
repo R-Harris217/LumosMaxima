@@ -5,13 +5,13 @@ import io from "socket.io-client";
 
 const LightDetails = (props) => {
   const [ light, setLight ] = useState({});
+  const [ user, setUser ] = useState({});
   const [ errors, setErrors ] = useState({});
   const [ newCart, setNewCart ] = useState({
     name: "",
     price: "",
     pictureUrl: "",
   })
-
   useEffect(() => {
     axios.get('http://localhost:8000/api/lights/' + props.light_id, {
       withCredentials: true
@@ -19,6 +19,19 @@ const LightDetails = (props) => {
       .then((res) => {
         console.log(res.data);
         setLight(res.data);
+      })
+      .catch((err) => {
+        navigate("/");
+        console.log(err);
+      });
+  }, []);
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/user/', {
+      withCredentials: true
+    })
+      .then((res) => {
+        console.log(res.data);
+        setUser(res.data);
       })
       .catch((err) => {
         navigate("/");
@@ -49,6 +62,22 @@ const LightDetails = (props) => {
     setNewCart(newStateObject);
   }
 
+  const submitCart = (e) => {
+    e.preventDefault();
+
+    axios.put('http://localhost:8000/api/user/' + props.user_id, {
+      withCredentials: true
+    })
+      .then((res) => {
+        console.log(res.data);
+        setUser(light.data)
+      })
+      .catch((err) => {
+        console.log(err.response.data.errors);
+        setErrors(err.response.data.errors);
+      })
+  }
+
   return (
     <div class="lightbox" style={{height:"865px"}}>
       <div class="lightdetails">
@@ -71,37 +100,11 @@ const LightDetails = (props) => {
         Description: { light.description }
       </p>
       <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"0px"}} onClick={ () => navigate("/lights") }>Return to All Lights</button>
-      <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}} type="submit" form="form1" value="Submit">Add To Cart</button>
+      <button class="btn btn-sm btn-outline-secondary" style={{marginLeft:"10px"}} type="submit" form="form1" value="Submit" onSubmit={submitCart}>Add To Cart</button>
       </div>
       <div class="lightdetailspic">
         <img class="lightdetailspic img-fluid" src={ light.pictureUrl } alt={ light.name } />
       </div>
-      <form id="form1" onSubmit={ submitHandler }>
-          <div>
-            <input
-              type="text"
-              name="name"
-              value={ newCart.name }
-              defaultValue={light.name}
-              onChange={ (e) => inputChange(e) }
-              />
-            <input
-            style={{border:"none"}}
-              type="number"
-              name="price"
-              value={ newCart.price }
-              defaultValue={light.price}
-              onChange={ (e) => inputChange(e) }
-              />
-            <input
-              type="text"
-              name="pictureUrl"
-              value={ newCart.pictureUrl }
-              defaultValue={light.pictureUrl}
-              onChange={ (e) => inputChange(e) }
-              />
-          </div>
-        </form>
     </div>
   )
 }
