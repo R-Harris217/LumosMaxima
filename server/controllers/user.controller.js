@@ -106,7 +106,7 @@ module.exports = {
         })
           .then((updatedUser) => {
             console.log("in update user");
-            // console.log(updatedMovie);
+
             res.json(updatedUser);
           })
           .catch((err) => {
