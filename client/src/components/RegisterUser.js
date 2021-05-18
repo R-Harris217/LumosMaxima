@@ -59,7 +59,7 @@ const Register = (props) => {
       {/* <h2>Register</h2> */}
       {confirmReg ? <h4>{confirmReg}</h4> : null}
       <div class="top-content">
-        <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_loneliness_lonely_186593_1920x1080.jpg)"}}>
+        <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_loneliness_lonely_186593_1920x1080.jpg)", height:"865px"}}>
           <div class="container">
             <div class="row">
               <div class="col-sm-5">

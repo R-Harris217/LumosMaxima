@@ -22,10 +22,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         // required: [true, "City field is required!"]
     },
-    cart: {
-        type: Array,
-        default:[]
-    },
+    cart: [
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Light",
+        }
+    ],
     state: {
         type: String,
         // required: [true, "State is required!"]
