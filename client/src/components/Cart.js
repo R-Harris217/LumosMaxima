@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { navigate, Link } from "@reach/router";
-// import io from "socket.io-client";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table } from 'reactstrap';
 import { useDispatch } from 'react-redux';
@@ -9,36 +9,8 @@ import ReactDOM from "react-dom";
 
 const Cart = (props) => {
   const [allCart, setAllCart] = useState([]);
-  // const [socket] = useState(() => io(":8000"));
-
-  // useEffect(() => {
-  //   console.log("Inside of the useEffect for Socket.io-client");
-
-  //   socket.on("connect", () => {
-  //     console.log("We are connected!");
-  //     console.log(socket.id);
-  //   });
-
-  //   socket.on("added_cart", (data) => {
-  //     console.log("added_cart");
-  //     console.log(data);
-  //     console.log(allCart);
-
-  //     setAllCart((currentAllCartValues) => [data, ...currentAllCartValues]);
-  //   });
-
-  //   socket.on("cart_deleted", (deletedCartId) => {
-  //     setAllCart((currentAllCartValues) => {
-  //       let filteredCartArray = currentAllCartValues.filter((oneCart) => {
-  //         return oneCart._id !== deletedCartId;
-  //       });
-
-  //       return filteredCartArray;
-  //     });
-  //   });
-
-  //   return () => socket.disconnect();
-  // }, []);
+  const [total, setTotal] = useState(0);
+  
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/cart", {
@@ -46,6 +18,13 @@ const Cart = (props) => {
       })
       .then((res) => {
         console.log(res.data);
+        let cartTotal = 0;
+        res.data.map ((item) => {
+          console.log(item.price);
+          cartTotal+= item.price;
+        }
+        )
+        setTotal(cartTotal);
         setAllCart(res.data);
       })
       .catch((err) => {
@@ -54,24 +33,7 @@ const Cart = (props) => {
       });
   }, []);
 
-  // const deleteCart = ( cartId ) => {
-  //   axios.delete('http://localhost:8000/api/cart/' + cartId, {
-  //     withCredentials: true
-  //   })
-  //     .then((res) => {
-  //       console.log(res.data);
 
-  //       socket.emit("deleted_cart", cartId);
-
-  //       let filteredCartArray = allCart.filter((oneCart) => {
-  //         return oneCart._id !== cartId;
-  //       });
-  //       setAllCart(filteredCartArray);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
 
   const deleteCart = ( cartId ) => {
     axios.delete('http://localhost:8000/api/cart/' + cartId, {
@@ -89,23 +51,18 @@ const Cart = (props) => {
       });
   }
 
-  const createOrder = (data, actions) =>{
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: "0.01",
-          },
-        },
-      ],
-    });
-  };
-
-  const onApprove = (data, actions) => {
-    return actions.order.capture();
-  };
-
-
+// const cartTotal = () => {
+//   let totalCart = allCart.map((item) => {
+//     return item.price;
+//   });
+//   setAllCart(totalCart);
+// }
+// const cartTotal = (allCart) => {
+//   return allCart.map((item) => {
+//     let totalCart = item.price;
+//     setTotal(totalCart);
+//   })
+// }
 
   return (
     <div>
@@ -136,7 +93,7 @@ const Cart = (props) => {
          
       </tbody>
       </Table>
-      <p>Total: $________</p>
+      <p>Total: {total}</p>
       <button class="btn btn-sm btn-outline-secondary" onClick={() => navigate("/lights/cart/checkout")}>Checkout</button>
     </div>
   );

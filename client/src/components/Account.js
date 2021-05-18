@@ -6,7 +6,7 @@ import "../bootstrap.css";
 
 const Account = (props) => {
   const [errors, setErrors] = useState({});
-  const [userInfo, setUserInfo] = useState([
+  const [user, setUser] = useState(
     {
       firstName: "",
       lastName: "",
@@ -15,7 +15,7 @@ const Account = (props) => {
       city: "",
       state: "",
     },
-  ]);
+  );
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/user", {
@@ -23,7 +23,7 @@ const Account = (props) => {
       })
       .then((res) => {
         console.log(res.data);
-        setUserInfo(res.data);
+        setUser(res.data);
       })
       .catch((err) => {
         navigate("/");
@@ -39,21 +39,20 @@ const Account = (props) => {
   //   };
 
   const inputChange = (e) => {
-    let newStateObject = { ...userInfo };
+    let newStateObject = { ...user };
     newStateObject[e.target.name] = e.target.value;
-    setUserInfo(newStateObject);
+    setUser(newStateObject);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     axios
-      .put("http://localhost:8000/api/user", userInfo, {
+      .put("http://localhost:8000/api/user/" + user._id, user, {
         withCredentials: true,
       })
       .then((res) => {
         console.log(res.data);
-        navigate("/user/" + props.id);
       })
       .catch((err) => {
         console.log(err.response.data.errors);
@@ -63,8 +62,8 @@ const Account = (props) => {
 
   return (
     <div>
-      {userInfo.map((user, index) => (
-        <div key={index}>
+      {/* {userInfo.map((user, index) => (
+        <div key={index}> */}
           <div class="top-content">
             <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_flashlight_night_198036_1920x1080.jpg)", height:"860px"}}>
               <div class="container">
@@ -97,9 +96,9 @@ const Account = (props) => {
                               placeholder="{user.firstName}"
                               class="form-first-name form-control"
                               id="form-first-name"
-                              name="First name"
+                              name="firstName"
                               value={user.firstName}
-                              // onChange={(e) => inputChange(e)}
+                              onChange={(e) => inputChange(e)}
                             />
                           </div>
                           <div class="form-group">
@@ -108,12 +107,12 @@ const Account = (props) => {
                             </label>
                             <input
                               type="text"
-                              placeholder={user.lastName}
+                              placeholder="{user.lastName}"
                               class="form-last-name form-control"
                               id="form-last-name"
                               name="lastName"
                               value={user.lastName}
-                              // onChange={(e) => handleChange(e)}
+                              onChange={(e) => inputChange(e)}
                             />
                           </div>
                           <div class="form-group">
@@ -122,11 +121,12 @@ const Account = (props) => {
                             </label>
                             <input
                               type="text"
-                              placeholder={user.email}
+                              placeholder="{user.email}"
                               class="form-email form-control"
                               id="form-email"
                               name="email"
                               value={user.email}
+                              onChange={(e) => inputChange(e)}
                             />
                           </div>
                           <div class="form-group">
@@ -140,7 +140,7 @@ const Account = (props) => {
                               id="form-email"
                               name="address"
                               value={user.address}
-                              // onChange={ handleChange }
+                              onChange={(e) => inputChange(e)}
                             />
                           </div>
                           <div class="form-group">
@@ -154,7 +154,7 @@ const Account = (props) => {
                               id="form-email"
                               name="city"
                               value={user.city}
-                              // onChange={ handleChange }
+                              onChange={(e) => inputChange(e)}
                             />
                           </div>
                           <div class="form-group">
@@ -168,7 +168,7 @@ const Account = (props) => {
                               id="form-email"
                               name="state"
                               value={user.state}
-                              // onChange={ handleChange }
+                              onChange={(e) => inputChange(e)}
                             />
                             <button type="submit" class="btn" style={{color:"white"}}>
                               Update Account
@@ -184,8 +184,8 @@ const Account = (props) => {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        {/* </div>
+      ))} */}
     </div>
   );
 };

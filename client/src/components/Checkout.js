@@ -241,7 +241,7 @@ const Checkout = (props) => {
               </div>
             </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">
-              Continue to checkout
+              Place Order
             </button>
           </form>
         </div>

@@ -56,23 +56,12 @@ module.exports = {
         res.clearCookie("usertoken");
         res.json({ message: "You have successfully logged out!"});
     },
-    // accountInfo: (req, res) => {
-    //     User.find({})
-    //         .then((userRecord) => {
-    //             console.log("in accountInfo");
-    //             res.json(userRecord);
-    //         })
-    //         .catch((err) => {
-    //             console.log("error found in accountInfo");
-    //             res.status(400).json(err);
-    //         })
-    // },
     accountInfo: (req, res) => {
         const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
     
         user_id = decodedJwt.payload._id;
     
-        User.find({})
+        User.findById(user_id)
           .then((userRecord) => {
             console.log("in user record");
             console.log(userRecord);
@@ -99,6 +88,9 @@ module.exports = {
       },
       update: (req, res) => {
         console.log(req.params.id);
+        const decodedJwt = jwt.decode(req.cookies.usertoken, { complete: true });
+    
+        user_id = decodedJwt.payload._id;
     
         User.findByIdAndUpdate(req.params.id, req.body, {
           new: true,  
