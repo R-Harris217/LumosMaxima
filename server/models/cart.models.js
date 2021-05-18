@@ -13,6 +13,10 @@ const CartSchema = new mongoose.Schema({
         type: String,
         required: [ true, "Flashlight picture required"]
     }
+    // light_ids: {[
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Light",
+    // ]}
 }, { timestamps: true})
 
 module.exports = mongoose.model("Cart", CartSchema);
