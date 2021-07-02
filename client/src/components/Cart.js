@@ -51,19 +51,6 @@ const Cart = (props) => {
       });
   }
 
-// const cartTotal = () => {
-//   let totalCart = allCart.map((item) => {
-//     return item.price;
-//   });
-//   setAllCart(totalCart);
-// }
-// const cartTotal = (allCart) => {
-//   return allCart.map((item) => {
-//     let totalCart = item.price;
-//     setTotal(totalCart);
-//   })
-// }
-
   return (
     <div>
       <h1>Cart</h1>

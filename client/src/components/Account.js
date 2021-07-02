@@ -3,6 +3,7 @@ import axios from "axios";
 import { navigate, Link } from "@reach/router";
 import io from "socket.io-client";
 import "../bootstrap.css";
+import OrderHistory from "./OrderHistory";
 
 const Account = (props) => {
   const [errors, setErrors] = useState({});
@@ -65,10 +66,11 @@ const Account = (props) => {
       {/* {userInfo.map((user, index) => (
         <div key={index}> */}
           <div class="top-content">
-            <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_flashlight_night_198036_1920x1080.jpg)", height:"860px"}}>
+            <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_flashlight_night_198036_1920x1080.jpg)", backgroundSize:"cover"}}>
               <div class="container">
                 <div class="row">
                   <div class="col-sm-5">
+                    
                     <div class="form-box">
                       <div class="form-top">
                         <div class="form-top-left">
@@ -176,16 +178,17 @@ const Account = (props) => {
                           </div>
                         </form>
                       </div>
+                      
                       <button style={{background:"none", border:"none", marginLeft:"600px"}} onClick={ () => navigate("/addlights") }>AddLights</button>
                     </div>
-
+                    
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
-        {/* </div>
-      ))} */}
+          
     </div>
   );
 };

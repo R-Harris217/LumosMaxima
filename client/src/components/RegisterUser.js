@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../registration.css";
+// import "../registration.css";
 import Login from "./Login";
 
 const Register = (props) => {
@@ -56,7 +56,6 @@ const Register = (props) => {
 
   return (
     <div>
-      {/* <h2>Register</h2> */}
       {confirmReg ? <h4>{confirmReg}</h4> : null}
       <div class="top-content">
         <div class="inner-bg" style={{backgroundImage:"url(https://images.wallpaperscraft.com/image/man_loneliness_lonely_186593_1920x1080.jpg)", height:"865px"}}>
