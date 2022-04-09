@@ -46,7 +46,7 @@ let settings = {
 
 const Home = (props) => {
 return(
-        <div style={{background:"url(https://images.wallpaperscraft.com/image/man_flashlight_beam_201670_1920x1080.jpg)", height:"860px"}}>
+        <div style={{background:"black", height:"860px"}}>
                 <div class="homebox">
                 <h1 style={{color:"white", fontSize:"100px"}}>Lumos Maxima</h1><br/>
                 <h3 style={{color:"white", fontSize:"25px", marginBottom:"30px"}}>Home to the best lights in the world</h3>
